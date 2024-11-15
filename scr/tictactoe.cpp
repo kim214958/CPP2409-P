@@ -4,7 +4,7 @@
 using namespace std;
 
 void TTT::clearMap(){ // 틱텍토의 보드판을 초기화하는 함수
-	map = vector<vector<char>>(numCell, vector<char>(numCell)); // 벡터의 1D, 2D 크기를 nuCell로 설정하면서 초기화
+	map = vector<vector<char>>(numCell, vector<char>(numCell)); // 벡터의 1D, 2D 크기를 numCell로 설정하면서 초기화
     for (int i = 0; i < numCell; i++) {
         for (int j = 0; j < numCell; j++) {
             map[i][j] = ' '; // 각 위치를 빈 칸(' ')으로 초기화
@@ -153,12 +153,7 @@ int TTT::playTTT(){
 	srand(time(0)); // 컴퓨터의 무작위 선택을 위한 난수 생성 
 	clearMap(); // 보드판 초기화
 	Bonus TTTbonus; // 보너스 시스템을 위한 보너스 객체
-    isBonusUsed = TTTbonus.checkUseBonus(); // 보너스 사용여부를 확인
-	
-	// 보너스를 사용여부가 true이면 보너스를 사용하는 함수를 호출
-    if(isBonusUsed == true){
-        TTTbonus.useBonus();
-    }
+    isBonusUsed = TTTbonus.useBonus(); // 보너스 사용여부를 확인
     // 게임 플레이를 위한 반복문      
 	while(true){
 		setCurrentPlayer(); // 현재 플레이어의 돌을 설정 (처음은 유저의 차례이다.)

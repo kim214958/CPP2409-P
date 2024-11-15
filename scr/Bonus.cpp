@@ -50,7 +50,13 @@ bool Bonus::checkUseBonus(){    // 보너스 사용여부를 확인하는 함수
     }
 }
 
-void Bonus::useBonus(){ // 보너스를 사용하는 함수
-    setUsedBonus(1); // 사용된 보너스를 1 증가
-    setBonus(getScore()); // 남은 보너스를 갱신
+bool Bonus::useBonus(){ // 보너스를 사용하는 함수
+    bool check = checkUseBonus();
+    if(check){
+        setUsedBonus(1); // 사용된 보너스를 1 증가
+        setBonus(getScore()); // 남은 보너스를 갱신}
+        return true;
+    }
+    else
+        return false;
 }

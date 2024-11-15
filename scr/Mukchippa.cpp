@@ -79,12 +79,8 @@ int MCP::turnCheck(int UserChoice, int ComputerChoice){ // 공격권을 선택�
 int MCP::playMCP(){
     srand(time(0)); // 컴퓨터의 무작위 선택을 위한 난수 생성 
     Bonus mcpbonus; // 보너스 시스템을 위한 보너스 객체
-    isBonusUsed = mcpbonus.checkUseBonus(); // 보너스 사용여부를 확인
+    isBonusUsed = mcpbonus.useBonus(); // 보너스 사용여부를 확인
 
-    // 보너스를 사용여부가 true이면 보너스를 사용하는 함수를 호출
-    if(isBonusUsed == true){
-            mcpbonus.useBonus();
-    }
     // 게임 플레이를 위한 반복문
     while (true) {
         UserChoice = getUserInput(); // 사용자의 선택
