@@ -1,0 +1,7 @@
+cat
+dog
+lion
+tiger
+giraffe
+zebra
+rabbit
