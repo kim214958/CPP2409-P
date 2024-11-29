@@ -2,6 +2,7 @@
 #include "Bonus.h"
 #include "tictactoe.h"
 #include "Hangman.h"
+#include "SortNumber.h"
 
 // 게임을 확인하는 메인(임시)
 int main(){
@@ -9,6 +10,7 @@ int main(){
     Bonus game_bonus; // 보너스 객체
     TTT tictactoe_game; // 틱택토 객체
     HM hangman_game; // 행맨 객체
+    SN sort_number_game;
 
     cout<<"초기 점수 : "<<game_bonus.getScore()<<endl;
     cout<<"초기 보너스 : "<<game_bonus.getBonus()<<endl;
@@ -17,11 +19,15 @@ int main(){
     cout<<"설정된 점수 : "<<game_bonus.getScore()<<endl;
     cout<<"설정된 보너스 : "<<game_bonus.getBonus()<<endl;
     
-   // mcp_game.playMCP(); // 묵찌빠 실행
+    //mcp_game.PlayMCP(); // 묵찌빠 실행
  
+    sort_number_game.PlaySN();
+ 
+    //tictactoe_game.PlayTTT(); // 틱택토 실행
 
-    //hangman_game.PlayHM();
-    tictactoe_game.PlayTTT(); // 틱택토 실행
+    hangman_game.PlayHM();
+
+    
 
     cout<<"최종 점수 : "<<game_bonus.getScore()<<endl;
     cout<<"최종 남은 보너스 : "<<game_bonus.getBonus()<<endl;
