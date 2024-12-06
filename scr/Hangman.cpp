@@ -1,6 +1,11 @@
 #include "Hangman.h"
 #include "Bonus.h"
 
+void HM::SetInstruction()
+{
+    cout << "단어 맞추기 게임을 실행합니다." << endl;
+}; // 게임 설명 오버라이딩
+
 // 텍스트 파일의 단어를 벡터에 담는 함수
 void HM::LoadWords(vector<string> &word_list, string file_name)
 {
@@ -20,7 +25,7 @@ void HM::LoadWords(vector<string> &word_list, string file_name)
 void HM::SetAnswer(vector<string> &word_list)
 {
     answer = new string(word_list[rand() % word_list.size()]); // 정답이 vector 내의 무작위 단어로 선택된다.
-    hidden_answer = new string(answer->length(), '_');       // 정답 string의 길이와 같은 숨겨진 답을 생성한다.
+    hidden_answer = new string(answer->length(), '_');         // 정답 string의 길이와 같은 숨겨진 답을 생성한다.
 }
 
 // 현재 내가 맞춘 문자를 보여주는 함수
@@ -175,7 +180,7 @@ int HM::PlayHM()
             cout << "정답 " << *answer << "을(를) 맞췄습니다!" << endl;
             give_score = true; // 점수 부여
             break;
-        } 
+        }
     }
 
     // 기회를 다 소진했으면

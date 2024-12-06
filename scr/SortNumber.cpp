@@ -6,6 +6,10 @@ bool SN::IsValidNumber(int choice) // 부모 클래스의 유효한 숫자 검�
     return choice == 5 || choice == 6 || choice == 7 || choice == 8 || choice == 9 || choice == 10;
 }
 
+void SN::SetInstruction(){
+    cout << "제한시간 내에 숫자를 크기순으로 정렬하는 게임입니다." << endl;
+}
+
 // 문제 벡터의 길이 (문제의 수)를 설정하는 함수
 void SN::SetArrayLength(int &array_length)
 {

@@ -2,6 +2,11 @@
 #include "Bonus.h"
 #include <ctime>
 
+void MCP::SetInstruction()
+{
+    cout << "묵찌빠 게임을 실행합니다." << endl;
+};
+
 int MCP::GetUserInput()
 { // 사용자로부터 입력을 받는 합수
     while (true)
@@ -129,7 +134,7 @@ int MCP::PlayMCP()
     }
     // 점수 계산
     if (give_score == true) // 승리시 점수 획득
-    {                                                 
+    {
         mcpbonus.setScore(mcpbonus.getScore() + 100); // 점수 +100, 누적점수 갱신
         mcpbonus.setBonus(mcpbonus.getScore());       // 남은 보너스 갱신
     }

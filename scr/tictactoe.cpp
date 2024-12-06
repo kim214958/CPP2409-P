@@ -3,6 +3,11 @@
 #include "Bonus.h"
 using namespace std;
 
+void TTT::SetInstruction()
+{
+	cout << "틱텍토(빙고) 게임을 실행합니다." << endl;
+};
+
 void TTT::ClearMap()
 { // 틱텍토의 보드판을 초기화하는 함수
 	// 벡터의 1D, 2D 크기를 NUM_CELL로 설정하면서 초기화

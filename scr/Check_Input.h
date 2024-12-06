@@ -16,6 +16,7 @@ public:
     bool IsNumber(string &choice1, string &choice2); // 사용자의 입력 2개가 숫자인지 확인하는 함수
     bool IsAlphabet(char choice); // 사용자의 입력이 알파벳인지 확인하는 함수
     virtual bool IsValidNumber(int choice); // 사용자의 입력이 유효한 숫자인지 확인하는 함수
+    virtual void SetInstruction() = 0;
 };
 
 #endif

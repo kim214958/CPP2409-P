@@ -3,10 +3,11 @@
 #include "tictactoe.h"
 #include "Hangman.h"
 #include "SortNumber.h"
+#include "Menu.h"
 
 // 게임을 확인하는 메인(임시)
 int main(){
-    MCP mcp_game; // 묵찌빠 객체
+    /*MCP mcp_game; // 묵찌빠 객체
     Bonus game_bonus; // 보너스 객체
     TTT tictactoe_game; // 틱택토 객체
     HM hangman_game; // 행맨 객체
@@ -31,6 +32,9 @@ int main(){
 
     cout<<"최종 점수 : "<<game_bonus.getScore()<<endl;
     cout<<"최종 남은 보너스 : "<<game_bonus.getBonus()<<endl;
-    cout<<"사용된 보너스 : "<<game_bonus.getUsedBonus()<<endl;
+    cout<<"사용된 보너스 : "<<game_bonus.getUsedBonus()<<endl;*/
+    Menu menu;
+    menu.PlayGame();
+   
 
 }

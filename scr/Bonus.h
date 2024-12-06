@@ -1,3 +1,6 @@
+#ifndef Bonus_H
+#define Bonus_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,3 +24,5 @@ public:
     bool checkUseBonus(); // 보너스 사용여부를 물어보는 함수
     bool useBonus();      // 보너스 사용을 결정하는 함수
 };
+
+#endif
