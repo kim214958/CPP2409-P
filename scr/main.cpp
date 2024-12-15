@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-// 게임을 확인하는 메인(임시)
+// 게임을 실행하는는 메인
 int main(){
 
     Menu menu;
