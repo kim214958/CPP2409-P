@@ -16,7 +16,7 @@ void Menu::GetInstruction()
     int num;
     while (true)
     {
-        cout << "설명들을 게임을 선택하세요 (1. 묵찌빠, 2. 틱택토, 3. 행맨, 4. 숫자 정렬) ";
+        cout << "설명들을 게임을 선택하세요 (1. 묵찌빠, 2. 틱택토, 3. 행맨, 4. 숫자 정렬): ";
         cin >> user_input; // 사용자로부터 입력을 받음(string)
         cout << endl;
 
@@ -36,33 +36,33 @@ void Menu::GetInstruction()
     }
 
     switch (num)
-    {
+    { // 각 게임 객체를 상향 형변환 후 SetInstruction()함수를 호출
     case 1:
     {
-        CheckInput *alpha = new MCP();
-        alpha->SetInstruction();
-        delete alpha;
+        CheckInput *info = new MCP();
+        info->SetInstruction();
+        delete info;
         return;
     }
     case 2:
     {
-        CheckInput *alpha = new TTT();
-        alpha->SetInstruction();
-        delete alpha;
+        CheckInput *info = new TTT();
+        info->SetInstruction();
+        delete info;
         return;
     }
     case 3:
     {
-        CheckInput *alpha = new HM();
-        alpha->SetInstruction();
-        delete alpha;
+        CheckInput *info = new HM();
+        info->SetInstruction();
+        delete info;
         return;
     }
     case 4:
     {
-        CheckInput *alpha = new SN();
-        alpha->SetInstruction();
-        delete alpha;
+        CheckInput *info = new SN();
+        info->SetInstruction();
+        delete info;
         return;
     }
     }
@@ -77,10 +77,10 @@ void Menu::ShowScore()
 }
 
 bool Menu::PlayRandom()
-{
+{ // 무작위 플레이 여부 확인 함수
     while (true)
     {
-        cout << "무작위 게임을 실행하시겠습니까? ";
+        cout << "무작위 게임을 실행하시겠습니까? (y/n): ";
         cin >> user_input;
         cout << endl;
 
@@ -100,19 +100,19 @@ bool Menu::PlayRandom()
 }
 
 void Menu::SelectGame()
-{
-    bool game_select_flag = true;
+{ // 플레이할 게임 선택
+    bool game_select_flag = true; // 게임 선택 여부 확인
     int num = 0;
 
-    if (PlayRandom())
+    if (PlayRandom()) // 무작위 게임 선택 여부
     {
         num = (rand() % 4) + 1; // 1~4까지 무작위 숫자 생성
-        game_select_flag = false;
+        game_select_flag = false; // 게임 선택 X
     }
 
     while (game_select_flag)
     {
-        cout << "실행할 게임을 선택하세요 (1. 묵찌빠, 2. 틱택토, 3. 행맨, 4. 숫자 정렬) ";
+        cout << "실행할 게임을 선택하세요 (1. 묵찌빠, 2. 틱택토, 3. 행맨, 4. 숫자 정렬): ";
         cin >> user_input; // 사용자로부터 입력을 받음(string)
         cout << endl;
 
@@ -194,22 +194,22 @@ void Menu::PlayGame()
         switch (choice)
         {
         case 1:
-        {
+        { // 게임 선택
             SelectGame();
             break;
         }
         case 2:
-        {
+        { // 게임 설명
             GetInstruction();
             break;
         }
         case 3:
-        {
+        { // 점수, 보너스 확인
             ShowScore();
             break;
         }
         case 4:
-        {
+        { // 프로그램 종료
             cout << "프로그램을 종료합니다." << endl;
             return;
         }

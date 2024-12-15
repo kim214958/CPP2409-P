@@ -14,9 +14,10 @@ public:
     bool give_score;    // 점수획득 여부를 결정
     bool IsNumber(string &choice); // 사용자의 입력이 숫자인지 확인하는 함수
     bool IsNumber(string &choice1, string &choice2); // 사용자의 입력 2개가 숫자인지 확인하는 함수
+    bool IsNegativeNumber(int number); // 사용자의 입력이 음수인지 확인하는 함수
     bool IsAlphabet(char choice); // 사용자의 입력이 알파벳인지 확인하는 함수
     virtual bool IsValidNumber(int choice); // 사용자의 입력이 유효한 숫자인지 확인하는 함수
-    virtual void SetInstruction() = 0;
+    virtual void SetInstruction() = 0; // 게임 설명을 구현하기 위한 가상 함수
 };
 
 #endif

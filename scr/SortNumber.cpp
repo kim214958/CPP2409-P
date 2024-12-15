@@ -6,9 +6,14 @@ bool SN::IsValidNumber(int choice) // 부모 클래스의 유효한 숫자 검�
     return choice == 5 || choice == 6 || choice == 7 || choice == 8 || choice == 9 || choice == 10;
 }
 
-void SN::SetInstruction(){
+void SN::SetInstruction()
+{
     cout << "제한시간 내에 숫자를 크기순으로 정렬하는 게임입니다." << endl;
-}
+    cout << "맨 처음 문제의 수를 결정합니다." << endl;
+    cout << "정한 문제의 수 만큼 무작위 숫자가 제시됩니다." << endl;
+    cout << "제한시간 내에 숫자를 크기순으로 정렬하세요. 주어진 시간은 문제*3초 입니다." <<endl;
+    cout << "보너스를 사용하면 제한시간이 5초 늘어납니다." <<endl;
+} // 게임 설명 오버라이딩
 
 // 문제 벡터의 길이 (문제의 수)를 설정하는 함수
 void SN::SetArrayLength(int &array_length)
@@ -179,7 +184,7 @@ void SN::PlaySN()
         bonus_time = 5;
     }
 
-    srand(time(0)); // 난수 생성성
+    srand(time(0));                   // 난수 생성성
     array_length = 0;                 // 문제 배열의 길이 초기화
     SetArrayLength(array_length);     // 문재 배열 길이 설정
     MakeRandomNumber(random_numbers); // 배열 길이 만큼 무작위 값을 가진 문제 벡터 생성
@@ -191,14 +196,15 @@ void SN::PlaySN()
         Sleep(1000);
     };
 
-    cout << endl << "주어진 시간은 " << array_length * 3 + bonus_time << "초 입니다." << endl;
+    cout << endl
+         << "주어진 시간은 " << array_length * 3 + bonus_time << "초 입니다." << endl;
 
     // 설정한 문제 벡터 공개
     ShowRandomNumbers(random_numbers);
 
-    time_t start = time(0); // 시간 측정 시작
-    GetUserAnswer(user_answer);   // 사용자로부터 답을 입력받음
-    time_t end = time(0);   // 시간 측정 종료
+    time_t start = time(0);     // 시간 측정 시작
+    GetUserAnswer(user_answer); // 사용자로부터 답을 입력받음
+    time_t end = time(0);       // 시간 측정 종료
 
     // 걸린 시간 계산 (초 단위)
     double duration = difftime(end, start);

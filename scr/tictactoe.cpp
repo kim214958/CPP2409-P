@@ -6,7 +6,10 @@ using namespace std;
 void TTT::SetInstruction()
 {
 	cout << "틱텍토(빙고) 게임을 실행합니다." << endl;
-};
+	cout << "플레이어와 컴퓨터가 번갈아가면서 돌을 둡니다." << endl;
+	cout << "먼저 돌 3개로 한 줄(대각선 포함)을 완성하면 승리합니다." << endl;
+	cout << "보너스를 사용하면 첫 차례에 돌을 한 번 더 둘 수 있습니다." << endl;
+}; // 게임 설명 오버라이딩
 
 void TTT::ClearMap()
 { // 틱텍토의 보드판을 초기화하는 함수
@@ -53,7 +56,7 @@ void TTT::GetUserInput()
 	while (true)
 	{
 		cout << "유저 (" << current_player << ")의 차례입니다. -> ";
-		cout << "(x, y) 좌표를 입력하세요: ";
+		cout << "(x, y) 좌표를 입력하세요 (띄어쓰기로 구분): ";
 		cin >> user_input >> user_input2;
 
 		// 입력받은 문자열이 숫자인지 확인
@@ -65,6 +68,11 @@ void TTT::GetUserInput()
 		// 유효성 검사를 마치면 int로 캐스팅
 		x = stoi(user_input);
 		y = stoi(user_input2);
+
+		if (!IsNegativeNumber(x) || !IsNegativeNumber(y))
+		{
+			continue; // 숫자가 음수이면 처음으로 돌아감
+		}
 
 		// 입력받은 숫자가 유효한 숫자인지 확인
 		// -100을 반환하면 보드판을 벗어나는 숫자, -200을 반환하면 이미 돌이 있는 보드칸
@@ -90,9 +98,9 @@ void TTT::GetUserInput()
 
 void TTT::GetComputerInput()
 { // 컴퓨터의 선택을 결정하는 함수
+	cout << "컴퓨터 (" << current_player << ")의 차례입니다. " << endl;
 	while (1)
 	{ // 유효한 숫자를 결정하기위한 루프
-		cout << "컴퓨터 (" << current_player << ")의 차례입니다. " << endl;
 		// 컴퓨터의 입력은 0~NUM_CELL-1까지 즉 좌표 범위 안의 숫자만 랜덤으로 생성한다.
 		int comx = (rand() % NUM_CELL);
 		int comy = (rand() % NUM_CELL);
