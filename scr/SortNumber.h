@@ -9,8 +9,7 @@
 #include <Windows.h>        // sleep 사용을 위해
 #include <sstream>
 #include "Check_input.h"
-#include "Menu.h"
-
+#include "Bonus.h"
 class SN : public CheckInput
 {
 public:

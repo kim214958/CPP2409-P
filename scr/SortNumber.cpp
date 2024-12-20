@@ -1,5 +1,4 @@
 #include "SortNumber.h"
-#include "Bonus.h"
 
 bool SN::IsValidNumber(int choice) // 부모 클래스의 유효한 숫자 검사 함수를 오버라이딩
 {
@@ -176,7 +175,7 @@ void SN::PlaySN()
 {
     // 보너스 객체 생성 & 보너스 사용 여부 확인
     Bonus sn_bonus;
-    is_bonus_used = sn_bonus.useBonus();
+    is_bonus_used = sn_bonus.UseBonus();
     // 보너스를 사용하면 보너스 타임 5초 추가
     int bonus_time = 0;
     if (is_bonus_used)
@@ -235,7 +234,7 @@ void SN::PlaySN()
     // 승리시 점수 부여
     if (give_score == true)
     {
-        sn_bonus.setScore(sn_bonus.getScore() + 100); // 점수 +100, 누적점수 갱신
-        sn_bonus.setBonus(sn_bonus.getScore());       // 남은 보너스 갱신
+        sn_bonus.SetScore(sn_bonus.GetScore() + 100); // 점수 +100, 누적점수 갱신
+        sn_bonus.SetBonus(sn_bonus.GetScore());       // 남은 보너스 갱신
     }
 }

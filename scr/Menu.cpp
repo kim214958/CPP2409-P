@@ -34,46 +34,45 @@ void Menu::GetInstruction()
         num = stoi(user_input); // 입력받은 값을 int형으로 반환
         break;
     }
+    // 게임들의 부모 객체 생성성
+    CheckInput *info;
 
     switch (num)
-    { // 각 게임 객체를 상향 형변환 후 SetInstruction()함수를 호출
+    { // 각 게임 객체를 상향 형변환
     case 1:
     {
-        CheckInput *info = new MCP();
-        info->SetInstruction();
-        delete info;
-        return;
+        info = new MCP();
+        break;
     }
     case 2:
     {
-        CheckInput *info = new TTT();
-        info->SetInstruction();
-        delete info;
-        return;
+        info = new TTT();
+        break;
     }
     case 3:
     {
-        CheckInput *info = new HM();
-        info->SetInstruction();
-        delete info;
-        return;
+        info = new HM();
+        break;
     }
     case 4:
     {
-        CheckInput *info = new SN();
-        info->SetInstruction();
-        delete info;
-        return;
+        info = new SN();
+        break;
     }
     }
+
+    //형변환한 객체의 SetInstruction()함수를 호출
+    info->SetInstruction();
+    delete info;
+    return;
 }
 
 void Menu::ShowScore()
 {
     Bonus bonus; // 보너스 객체 생성
-    cout << "점수 : " << bonus.getScore() << endl;
-    cout << "남은 보너스 : " << bonus.getBonus() << endl;
-    cout << "사용된 보너스 : " << bonus.getUsedBonus() << endl;
+    cout << "점수 : " << bonus.GetScore() << endl;
+    cout << "남은 보너스 : " << bonus.GetBonus() << endl;
+    cout << "사용된 보너스 : " << bonus.GetUsedBonus() << endl;
 }
 
 bool Menu::PlayRandom()
@@ -100,13 +99,13 @@ bool Menu::PlayRandom()
 }
 
 void Menu::SelectGame()
-{ // 플레이할 게임 선택
+{                                 // 플레이할 게임 선택
     bool game_select_flag = true; // 게임 선택 여부 확인
     int num = 0;
 
     if (PlayRandom()) // 무작위 게임 선택 여부
     {
-        num = (rand() % 4) + 1; // 1~4까지 무작위 숫자 생성
+        num = (rand() % 4) + 1;   // 1~4까지 무작위 숫자 생성
         game_select_flag = false; // 게임 선택 X
     }
 

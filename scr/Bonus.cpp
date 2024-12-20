@@ -2,46 +2,46 @@
 
 int Bonus::score = 0;
 int Bonus::bonus = 0;
-int Bonus::usedbonus = 0;
+int Bonus::used_bonus = 0;
 
-void Bonus::setScore(int record)
+void Bonus::SetScore(int record)
 { // 점수를 설정
     score = record;
 }
 
-int Bonus::getScore()
+int Bonus::GetScore()
 { // 점수를 반환
     return score;
 }
 
-void Bonus::setBonus(int record)
+void Bonus::SetBonus(int record)
 {                                              // 남은 보너스를 설정
-    bonus = getScore() / 200 - getUsedBonus(); // 남은 보너스 = 점수/200 - 사용한 보너스의 수
+    bonus = GetScore() / 200 - GetUsedBonus(); // 남은 보너스 = 점수/200 - 사용한 보너스의 수
 }
 
-int Bonus::getBonus()
+int Bonus::GetBonus()
 { // 남은 보너스를 반환
     return bonus;
 }
 
-void Bonus::setUsedBonus(int use)
+void Bonus::SetUsedBonus(int use)
 {                     // 사용한 보너스의 수를 더하는 함수
-    usedbonus += use; // 매개변수의 값만큼 사용한 보너스의 수를 더함
+    used_bonus += use; // 매개변수의 값만큼 사용한 보너스의 수를 더함
 }
 
-int Bonus::getUsedBonus()
+int Bonus::GetUsedBonus()
 { // 사용한 보너스를 반환
-    return usedbonus;
+    return used_bonus;
 }
 
-bool Bonus::checkUseBonus()
+bool Bonus::CheckUseBonus()
 {                 // 보너스 사용여부를 확인하는 함수
     string input; // 사용자의 입력
     while (true)
     {
-        if (getBonus() >= 1)
+        if (GetBonus() >= 1)
         { // 남은 보너스가 1 이상이면
-            cout << "보너스를 사용하시겠습니까? 보유한 보너스:" << getBonus() << "개" << endl;
+            cout << "보너스를 사용하시겠습니까? 보유한 보너스:" << GetBonus() << "개" << endl;
             cout << "사용하시려면 'y'를, 사용하지 않으시려면 'n'을 입력하세요." << endl;
             cin >> input;
             if (input == "y" || input == "Y")
@@ -62,13 +62,13 @@ bool Bonus::checkUseBonus()
     }
 }
 
-bool Bonus::useBonus()
+bool Bonus::UseBonus()
 { // 보너스를 사용하는 함수
-    bool check = checkUseBonus();
+    bool check = CheckUseBonus();
     if (check)
     {
-        setUsedBonus(1);      // 사용된 보너스를 1 증가
-        setBonus(getScore()); // 남은 보너스를 갱신}
+        SetUsedBonus(1);      // 사용된 보너스를 1 증가
+        SetBonus(GetScore()); // 남은 보너스를 갱신}
         return true;
     }
     else

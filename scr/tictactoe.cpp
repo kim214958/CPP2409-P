@@ -1,6 +1,4 @@
-#include <ctime>
 #include "tictactoe.h"
-#include "Bonus.h"
 using namespace std;
 
 void TTT::SetInstruction()
@@ -228,7 +226,7 @@ int TTT::PlayTTT()
 	srand(time(0));						  // 컴퓨터의 무작위 선택을 위한 난수 생성
 	ClearMap();							  // 보드판 초기화
 	Bonus ttt_bonus;					  // 보너스 시스템을 위한 보너스 객체
-	is_bonus_used = ttt_bonus.useBonus(); // 보너스 사용여부를 확인
+	is_bonus_used = ttt_bonus.UseBonus(); // 보너스 사용여부를 확인
 										  // 게임 플레이를 위한 반복문
 	while (true)
 	{
@@ -282,8 +280,8 @@ int TTT::PlayTTT()
 	// 점수 부여 여부가 true이면 (승리했다면)
 	if (give_score == true)
 	{
-		ttt_bonus.setScore(ttt_bonus.getScore() + 100); // 점수 +100, 누적점수 갱신
-		ttt_bonus.setBonus(ttt_bonus.getScore());		// 남은 보너스 갱신
+		ttt_bonus.SetScore(ttt_bonus.GetScore() + 100); // 점수 +100, 누적점수 갱신
+		ttt_bonus.SetBonus(ttt_bonus.GetScore());		// 남은 보너스 갱신
 	}
 
 	return 0; // 틱텍토 프로그램 종료

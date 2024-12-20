@@ -1,5 +1,4 @@
 #include "Hangman.h"
-#include "Bonus.h"
 
 void HM::SetInstruction()
 {
@@ -158,7 +157,7 @@ int HM::PlayHM()
 {
     // 보너스 객체 생성 & 보너스 사용여부 확인
     Bonus hm_bonus;
-    is_bonus_used = hm_bonus.useBonus();
+    is_bonus_used = hm_bonus.UseBonus();
 
     // 정답, 숨겨진 정답 초기화
     answer = nullptr;
@@ -197,8 +196,8 @@ int HM::PlayHM()
     // 승리시 점수 부여
     if (give_score == true)
     {
-        hm_bonus.setScore(hm_bonus.getScore() + 100); // 점수 +100, 누적점수 갱신
-        hm_bonus.setBonus(hm_bonus.getScore());       // 남은 보너스 갱신
+        hm_bonus.SetScore(hm_bonus.GetScore() + 100); // 점수 +100, 누적점수 갱신
+        hm_bonus.SetBonus(hm_bonus.GetScore());       // 남은 보너스 갱신
     }
 
     // 포인터 초기화

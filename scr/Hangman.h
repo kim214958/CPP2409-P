@@ -7,6 +7,7 @@
 #include <string>
 #include <ctime>
 #include "Check_input.h"
+#include "Bonus.h"
 using namespace std;
 
 class HM : public CheckInput

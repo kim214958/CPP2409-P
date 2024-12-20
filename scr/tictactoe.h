@@ -4,7 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 #include "Check_Input.h"
+#include "Bonus.h"
+
 using namespace std;
 
 class TTT : public CheckInput
